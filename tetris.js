@@ -29,7 +29,11 @@ class Tetris {
     checkRight() { }
     moveRight() { }
     moveLeft() { }
-    moveBottom() { }
+    moveBottom() {
+        if (this.checkBottom()) {
+            this.y += 1;
+        }
+    }
     changeRotation() { }
 }
 
