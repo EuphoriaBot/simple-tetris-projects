@@ -29,8 +29,16 @@ class Tetris {
         return true;
     }
 
-    checkRight() { }
-    moveRight() { }
+    checkRight() {
+        if (this.checkRight()) {
+            this.x += 1;
+        }
+    }
+
+    moveRight() {
+        return true;
+    }
+
     moveLeft() {
         if (this.checkLeft()) {
             this.x -= 1;
