@@ -111,8 +111,10 @@ const size = 40;
 const framePerSecond = 24;
 const gameSpeed = 5;
 const canvas = document.getElementById("canvas");
+const nextShapeCanvas = document.getElementById("nextShapeCanvas");
 const image = document.getElementById("image");
 const ctx = canvas.getContext("2d");
+const nctx = nextShapeCanvas.getContext("2d");
 const squareCountX = canvas.width / size;
 const squareCountY = canvas.height / size;
 
@@ -247,7 +249,14 @@ let drawSquares = () => {
 };
 
 let drawNextShape = () => {
-
+    nctx.fillStyle = "#bca0dc";
+    nctx.fillRect(0, 0, nextShapeCanvas.width, nextShapeCanvas.height);
+    for (let i = 0; i < nextShape.template.length; i++) {
+        for (let j = 0; j < nextShape.template.length; j++) {
+            if (nextShape.template[i][j] == 0) continue;
+            nctx.drawImage(image, nextShape.imageX, nextShape.imageY, imageSquareSize.imageSquareSize, size * i, size * j + size, size, size);
+        }
+    }
 };
 
 let draw = () => {
